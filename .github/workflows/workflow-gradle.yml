@@ -22,19 +22,16 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-
-   - name: setup-chromedriver
-  # You may pin to the exact commit or the version.
-  # uses: nanasess/setup-chromedriver@42cc2998329f041de87dc3cfa33a930eacd57eaa
-  uses: nanasess/setup-chromedriver@v2.2.2
-  with:
-    # The chromedriver version to install
-    chromedriver-version: # optional
-          
-
+        
+    #Setup Chrome Driver
+  - name: Setup Chrome
+    uses: browser-actions/setup-chrome@v1.7.2
+  
+    #Setup Gradlew
   - name: Setup Gradlew
     run: chmod +X gradlew
-
+    
+    #Execute Test
   - name: execute test
     run: ./gradlew cucumbar
   
